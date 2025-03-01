@@ -1,0 +1,34 @@
+{% extends 'carwash/base.html' %}
+
+{% block content %}
+<h2>Past Bookings</h2>
+
+{% if past_bookings %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Service Type</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in past_bookings %}
+            <tr>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.date }}</td>
+                <td>{{ booking.time }}</td>
+                <td>{{ booking.get_service_type_display }}</td>
+                <td>{{ booking.get_status_display }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No past bookings found.</p>
+{% endif %}
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to Home</a>
+
+{% endblock %}

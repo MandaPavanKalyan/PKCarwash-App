@@ -1,0 +1,37 @@
+{% extends 'carwash/base.html' %}
+
+{% block content %}
+<h2>Appointments</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Service</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.id }}</td>
+            <td>{{ appointment.customer.user.username }}</td>
+            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.time }}</td>
+            <td>{{ appointment.get_service_type_display }}</td>
+            <td>{{ appointment.get_status_display }}</td>
+            <td>
+                {% if appointment.status == 'pending' %}
+                    <a href="{% url 'accept_appointment' appointment.id %}" class="btn btn-success btn-sm">Accept</a>
+                    <a href="{% url 'reject_appointment' appointment.id %}" class="btn btn-danger btn-sm">Reject</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to Admin</a>
+{% endblock %}

@@ -1,0 +1,128 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body background with image */
+body {
+    background-image: url("{% static 'images/backgroundimage.jpg' %}");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    padding-top: 60px; /* Adds padding for the navbar */
+}
+
+/* Navbar Styling */
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.navbar a {
+    color: #fff;
+}
+
+.navbar a:hover {
+    color: #f8f9fa;
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Button Styling */
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Prevent background fixed for mobile */
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar .navbar-brand {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        width: 100%; /* Make buttons full-width on mobile */
+    }
+}
+
+/* Styling for Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #343a40;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Chatbot Frame Styling */
+iframe {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 700px;
+    min-height: 700px;
+    border: none;
+    z-index: 9999;
+}
+
+/* Adjustments to make sure page content isn't hidden behind the iframe */
+body {
+    padding-bottom: 750px; /* Ensure content doesn't get hidden under the iframe */
+}

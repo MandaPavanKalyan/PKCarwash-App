@@ -1,0 +1,23 @@
+{% extends 'carwash/base.html' %}
+
+{% block content %}
+<h1>Welcome to Car Wash App</h1>
+{% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}!</p>
+    {% if user.is_staff %}
+        <a href="{% url 'appointments' %}" class="btn btn-primary">View Appointments</a>
+        <a href="{% url 'delivered_services' %}" class="btn btn-secondary">View Delivered Services</a>
+    {% else %}
+        <a href="{% url 'request_appointment' %}" class="btn btn-primary">Request Appointment</a>
+    {% endif %}
+{% else %}
+    <p>Please <a href="{% url 'login' %}">login</a> to continue.</p>
+{% endif %}
+
+<iframe
+src="https://www.chatbase.co/chatbot-iframe/wLSSzvDIZm3gwYb2Yha3e"
+width="100%"
+style="height: 100%; min-height: 700px"
+frameborder="0">
+</iframe>
+{% endblock %}
